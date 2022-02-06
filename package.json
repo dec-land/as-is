@@ -1,5 +1,5 @@
 {
-	"name": "as-is",
+	"name": "@lemoncrap/as-is",
 	"version": "1.0.1",
 	"description": "Type guard functions for checking if a value is of a specific type or asserting that it is.",
 	"main": "dist/index.js",
@@ -12,9 +12,7 @@
 		"preset": "es-jest",
 		"maxWorkers": 3,
 		"verbose": true,
-		"setupFilesAfterEnv": [
-			"jest-extended/all"
-		]
+		"setupFilesAfterEnv": ["jest-extended/all"]
 	},
 	"devDependencies": {
 		"es-jest": "^1.5.0",
@@ -22,16 +20,7 @@
 		"jest-extended": "^2.0.0",
 		"@types/jest": "^27.0.2"
 	},
-	"keywords": [
-		"assert",
-		"as",
-		"is",
-		"type",
-		"type",
-		"guard",
-		"type",
-		"check"
-	],
+	"keywords": ["assert", "as", "is", "type", "type", "guard", "type", "check"],
 	"author": "Declan Fitzpatrick",
 	"homepage": "https://github.com/dec-land/as-is#readme",
 	"license": "ISC"
