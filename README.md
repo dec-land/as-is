@@ -1,5 +1,10 @@
 # As-Is
 
+## Description
+As-Is contains two modules.
+ * As - Type predicates for checking values are of certain types.
+ * Is - Asserting values are of a certain type using the above predicates.
+
 ## Usage
 
 Using npm:
@@ -19,7 +24,7 @@ var Is = require('as-is/is');
 ```
 
 In Typescript
-```typescript
+```ts
 // Load the As and Is
 import { Is, As } from 'as-is';
 
@@ -30,7 +35,7 @@ import Is from 'as-is/Is';
 
 ## Why As-Is?
 
-As-Is offers a basis for type checking common objects. Below are a list of included type checks
+As-Is offers the following predicates that can be used to check or assert whether a value is of a specific type.
 
   * number
   * integer
