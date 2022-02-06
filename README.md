@@ -5,7 +5,7 @@
 Using npm:
 ```shell
 $ npm i -g npm
-$ npm i lodash
+$ npm i as-is
 ```
 
 In Javascript:
