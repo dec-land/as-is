@@ -1,5 +1,5 @@
 {
-	"name": "@lemoncrap/as-is",
+	"name": "@dec-land/as-is",
 	"version": "1.0.1",
 	"description": "Type predicate functions for checking if a value is of a specific type or asserting that it is.",
 	"main": "dist/index.js",

@@ -2,8 +2,8 @@
 
 ## Description
 As-Is contains two modules.
- * As - Type predicates for checking values are of certain types.
- * Is - Asserting values are of a certain type using the above predicates.
+ * Is - Type predicates for checking values are of certain types.
+ * As - Asserting values are of a certain type using the above predicates.
 
 ## Usage
 
@@ -16,21 +16,21 @@ $ npm i as-is
 In Javascript:
 ```js
 // Load the As and Is
-var { As, Is } = require('as-is');
+var { As, Is } = require('@dec-land/as-is');
 
 // Load them seperately
-var As = require('as-is/as');
-var Is = require('as-is/is');
+var As = require('@dec-land/as-is/as');
+var Is = require('@dec-land/as-is/is');
 ```
 
 In Typescript
 ```ts
 // Load the As and Is
-import { Is, As } from 'as-is';
+import { Is, As } from '@dec-land/as-is';
 
 // Load them seperately
-import As from 'as-is/As';
-import Is from 'as-is/Is';
+import As from '@dec-land/as-is/As';
+import Is from '@dec-land/as-is/Is';
 ```
 
 ## Examples
@@ -38,7 +38,7 @@ import Is from 'as-is/Is';
 
 In Examples
 ```ts
-import Is from 'as-is/Is';
+import Is from '@dec-land/as-is/Is';
 
 Is.number(5) // true
 Is.number('test'); // false
@@ -54,7 +54,7 @@ Is.date(new Date()); // true
 
 As Examples
 ```ts
-import { As, Is } from '@lemoncrap/as-is';
+import { As, Is } from '@dec-land/as-is';
 
 let a: unknown = 'test'; // Here we have an unknown string
 
