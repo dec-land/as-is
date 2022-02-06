@@ -19,7 +19,7 @@ var Is = require('as-is/is');
 ```
 
 In Typescript
-```
+```typescript
 // Load the As and Is
 import { Is, As } from 'as-is';
 
