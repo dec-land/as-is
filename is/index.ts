@@ -1,7 +1,5 @@
 /* eslint-disable no-restricted-syntax */
 
-import { isNativeError } from 'util/types';
-
 /**
  * Helper functions for checking whether a value is a specific type.
  *
@@ -15,11 +13,8 @@ class Is {
 	 * Returns true for Infinity and -Infinity.
 	 * @param value The value to test
 	 */
-	public static number(value: unknown, allowNull = false): value is number {
-		return (
-			(allowNull && value == null) ||
-			(value != null && !Number.isNaN(value) && (typeof value === 'number' || value instanceof Number))
-		);
+	public static number(value: unknown): value is number {
+		return (value != null && !Number.isNaN(value) && (typeof value === 'number' || value instanceof Number))
 	}
 
 	/**
@@ -27,8 +22,8 @@ class Is {
 	 * Returns false for NaN, Infinity and -Infinity.
 	 * @param value The value to test
 	 */
-	public static integer(value: unknown, allowNull = false): value is number {
-		return (allowNull && value == null) || (Is.number(value) && value % 1 === 0);
+	public static integer(value: unknown): value is number {
+		return Is.number(value) && value % 1 === 0;
 	}
 
 	/**
@@ -37,16 +32,16 @@ class Is {
 	 * Which is why the instanceof is needed as well. Unlikely but just incase.
 	 * @param value The value to test
 	 */
-	public static string(value: unknown, allowNull = false): value is string {
-		return (allowNull && value == null) || (value != null && (typeof value === 'string' || value instanceof String));
+	public static string(value: unknown): value is string {
+		return value != null && (typeof value === 'string' || value instanceof String);
 	}
 
 	/**
 	 * Gets if the specified value is an array.
 	 * @param value The value to test
 	 */
-	public static array(value: unknown, allowNull = false): value is unknown[] {
-		return (allowNull && value == null) || (value != null && Array.isArray(value));
+	public static array(value: unknown): value is unknown[] {
+		return value != null && Array.isArray(value);
 	}
 
 	/**
@@ -56,10 +51,9 @@ class Is {
 	 */
 	public static arrayOf<T>(
 		value: unknown,
-		innerTester: (value: unknown, allowNull?: boolean) => value is T,
-		allowNull = false,
+		innerTester: (value: unknown, allowNull?: boolean) => value is T
 	): value is T[] {
-		return (allowNull && value == null) || (value != null && Is.array(value) && value.every((el) => innerTester(el)));
+		return value != null && Is.array(value) && value.every((el) => innerTester(el));
 	}
 
 	/**
@@ -67,8 +61,8 @@ class Is {
 	 * Equivalent to Is.array at runtime.
 	 * @param value The value to test
 	 */
-	public static readonlyArray(value: unknown, allowNull = false): value is ReadonlyArray<unknown> {
-		return Is.array(value, allowNull);
+	public static readonlyArray(value: unknown): value is ReadonlyArray<unknown> {
+		return Is.array(value);
 	}
 
 	/**
@@ -79,18 +73,17 @@ class Is {
 	 */
 	public static readonlyArrayOf<T>(
 		value: unknown,
-		innerTester: (value: unknown, allowNull?: boolean) => value is T,
-		allowNull = false,
+		innerTester: (value: unknown, allowNull?: boolean) => value is T
 	): value is ReadonlyArray<T> {
-		return Is.arrayOf(value, innerTester, allowNull);
+		return Is.arrayOf(value, innerTester);
 	}
 
 	/**
 	 * Gets if the specified value is an object but NOT an array.
 	 * @param value The value to test
 	 */
-	public static object(value: unknown, allowNull = false): value is Record<string, unknown> {
-		return (allowNull && value == null) || (value != null && typeof value === 'object' && !Is.array(value, allowNull));
+	public static object(value: unknown): value is Record<string, unknown> {
+		return value != null && typeof value === 'object' && !Is.array(value);
 	}
 
 	/**
@@ -106,61 +99,55 @@ class Is {
 	 * Gets if the specified value is a function.
 	 * @param value The value to test
 	 */
-	public static function(value: unknown, allowNull = false): value is (...args: unknown[]) => void {
-		return (
-			(allowNull && value == null) || (value != null && (typeof value === 'function' || value instanceof Function))
-		);
+	public static function(value: unknown): value is (...args: unknown[]) => void {
+		return value != null && (typeof value === 'function' || value instanceof Function)
 	}
 
 	/**
 	 * Gets if the specified value is a boolean.
 	 * @param value The value to test
 	 */
-	public static boolean(value: unknown, allowNull = false): value is boolean {
-		return (allowNull && value == null) || value === true || value === false;
+	public static boolean(value: unknown): value is boolean {
+		return value === true || value === false;
 	}
 
 	/**
 	 * Gets if the specified value is a primitive.
 	 * @param value The value to test
 	 */
-	public static primitive(value: unknown, allowNull = false): value is boolean | number | string {
-		return Is.number(value, allowNull) || Is.boolean(value, allowNull) || Is.string(value, allowNull);
+	public static primitive(value: unknown): value is boolean | number | string {
+		return Is.number(value) || Is.boolean(value) || Is.string(value);
 	}
 
 	/**
 	 * Gets if the specified value is a non-primitive.
 	 * @param value The value to test
 	 */
-	public static nonPrimitive(value: unknown, allowNull = false): value is Record<string, unknown> {
-		return (allowNull && value == null) || (value != null && !Is.primitive(value, allowNull));
+	public static nonPrimitive(value: unknown): value is Record<string, unknown> {
+		return value != null && !Is.primitive(value);
 	}
 
 	/**
 	 * Gets if the specified value is an error.
 	 * @param value The value to test
 	 */
-	public static error(value: unknown, allowNull = false): value is Error {
-		return (allowNull && value == null) || value instanceof Error || isNativeError(value);
+	public static error(value: unknown): value is Error {
+		return value instanceof Error || Object.prototype.toString.call(value) === "[object Error]"
 	}
 
 	/**
 	 * Gets if the specified value is a date.
 	 * @param value The value to test
 	 */
-	public static date(value: unknown, allowNull = false): value is Date {
-		return (
-			(allowNull && value == null) ||
-			(Object.prototype.toString.call(value) === '[object Date]' && !Number.isNaN(value))
-		);
+	public static date(value: unknown): value is Date {
+		return value != null && Object.prototype.toString.call(value) === '[object Date]' && !Number.isNaN(value);
 	}
 
 	/**
 	 * Gets if the specified value is a json string
 	 * @param value The value to test
 	 */
-	public static json(value: unknown, allowNull = false): value is JSON {
-		if (allowNull && value == null) return true;
+	public static json(value: unknown): value is JSON {
 
 		// Ensure its a string
 		const stringValue = !Is.string(value) ? JSON.stringify(value) : value;
@@ -175,7 +162,7 @@ class Is {
 		}
 
 		// Should be an object when parsed.
-		return Is.object(parsedValue, allowNull);
+		return Is.object(parsedValue);
 	}
 }
 
