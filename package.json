@@ -1,6 +1,6 @@
 {
 	"name": "@dec-land/as-is",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Type predicate functions for checking if a value is of a specific type or asserting that it is.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -12,7 +12,9 @@
 		"preset": "es-jest",
 		"maxWorkers": 3,
 		"verbose": true,
-		"setupFilesAfterEnv": ["jest-extended/all"]
+		"setupFilesAfterEnv": [
+			"jest-extended/all"
+		]
 	},
 	"devDependencies": {
 		"es-jest": "^1.5.0",
@@ -20,7 +22,17 @@
 		"jest-extended": "^2.0.0",
 		"@types/jest": "^27.0.2"
 	},
-	"keywords": ["assert", "as", "is", "type", "guard", "check", "helpers", "util", "predicate"],
+	"keywords": [
+		"assert",
+		"as",
+		"is",
+		"type",
+		"guard",
+		"check",
+		"helpers",
+		"util",
+		"predicate"
+	],
 	"author": "Declan Fitzpatrick",
 	"homepage": "https://github.com/dec-land/as-is#readme",
 	"license": "ISC"
