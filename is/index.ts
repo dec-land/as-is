@@ -1,3 +1,5 @@
+import { Primitive } from '../types';
+
 /**
  * Helper functions for checking whether a value is a specific type.
  *
@@ -113,7 +115,7 @@ class Is {
 	 * Gets if the specified value is a primitive.
 	 * @param value The value to test
 	 */
-	public static primitive(value: unknown): value is boolean | number | string {
+	public static primitive(value: unknown): value is Primitive {
 		return Is.number(value) || Is.boolean(value) || Is.string(value);
 	}
 

@@ -1,5 +1,6 @@
 import { AssertionError } from 'assert';
 import Is from '../is';
+import { Primitive } from '../types';
 
 /**
  * Helper functions for asserting unknown values as a specific type. If the assertion fails it will error.

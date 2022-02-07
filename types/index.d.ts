@@ -1,1 +1,1 @@
-type Primitive = boolean | number | string;
+export type Primitive = boolean | number | string;
