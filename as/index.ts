@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unused-modules */
 import { AssertionError } from 'assert';
 import Is from '../is';
 
@@ -62,8 +61,7 @@ class As {
 	 */
 	public static arrayOf<T>(
 		value: unknown,
-		innerTester: (value: unknown) => value is T,
-		allowNull = false,
+		innerTester: (value: unknown) => value is T
 	): asserts value is T[] {
 		if (!Is.arrayOf<T>(value, innerTester)) {
 			throw new AssertionError({ message: `${value} is not an array of specified type` });
@@ -89,8 +87,7 @@ class As {
 	 */
 	public static readonlyArrayOf<T>(
 		value: unknown,
-		innerTester: (value: unknown) => value is T,
-		allowNull = false,
+		innerTester: (value: unknown) => value is T
 	): asserts value is ReadonlyArray<T> {
 		if (!Is.readonlyArrayOf<T>(value, innerTester)) {
 			throw new AssertionError({ message: `${value} is not a readonly array of specified type` });

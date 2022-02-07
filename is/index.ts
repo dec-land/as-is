@@ -1,5 +1,3 @@
-/* eslint-disable no-restricted-syntax */
-
 /**
  * Helper functions for checking whether a value is a specific type.
  *
@@ -51,7 +49,7 @@ class Is {
 	 */
 	public static arrayOf<T>(
 		value: unknown,
-		innerTester: (value: unknown, allowNull?: boolean) => value is T
+		innerTester: (value: unknown) => value is T
 	): value is T[] {
 		return value != null && Is.array(value) && value.every((el) => innerTester(el));
 	}
@@ -73,7 +71,7 @@ class Is {
 	 */
 	public static readonlyArrayOf<T>(
 		value: unknown,
-		innerTester: (value: unknown, allowNull?: boolean) => value is T
+		innerTester: (value: unknown) => value is T
 	): value is ReadonlyArray<T> {
 		return Is.arrayOf(value, innerTester);
 	}
