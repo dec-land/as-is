@@ -99,7 +99,7 @@ class Is {
 	 * Gets if the specified value is a function.
 	 * @param value The value to test
 	 */
-	public static function(value: unknown): value is (...args: unknown[]) => void {
+	public static function(value: unknown): value is (...args: unknown[]) => unknown {
 		return value != null && (typeof value === 'function' || value instanceof Function)
 	}
 
