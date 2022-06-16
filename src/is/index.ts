@@ -91,7 +91,7 @@ class Is {
 	 * @param value The value to test
 	 * @param props The properties to check exist in the object
 	 */
-	public static objectWithProperties<T>(value: unknown, ...props: string[]): value is Record<string, T> {
+	public static objectWithProperties<T>(value: unknown, ...props: PropertyKey[]): value is Record<string, T> {
 		return Is.object(value) && props.every((prop) => prop in value);
 	}
 
