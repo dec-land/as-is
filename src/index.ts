@@ -1,4 +1,4 @@
-import As from './as';
-import Is from './is';
+import As from "./as";
+import Is from "./is";
 
 export { As, Is };

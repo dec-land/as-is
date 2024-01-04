@@ -5,25 +5,41 @@ As-Is contains two modules.
  * Is - Type predicates for checking values are of certain types.
  * As - Asserting values are of a certain type using the above predicates.
 
-## Usage
+## Installing
 
 Using npm:
-```shell
-$ npm i -g npm
-$ npm i as-is
+``` shell
+npm i as-is
 ```
 
-In Javascript:
+Using yarn:
+``` shell
+yarn add as-is
+```
+
+Using pnpm:
+``` shell
+pnpm add as-is
+```
+
+Using bun:
+``` shell
+bun add as-is
+```
+
+## Usage
+
+Using require:
 ```js
 // Load the As and Is
-var { As, Is } = require('@dec-land/as-is');
+const { As, Is } = require('@dec-land/as-is');
 
 // Load them seperately
-var As = require('@dec-land/as-is/as');
-var Is = require('@dec-land/as-is/is');
+const As = require('@dec-land/as-is/as');
+const Is = require('@dec-land/as-is/is');
 ```
 
-In Typescript
+Using import:
 ```ts
 // Load the As and Is
 import { Is, As } from '@dec-land/as-is';

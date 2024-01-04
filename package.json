@@ -1,6 +1,6 @@
 {
 	"name": "@dec-land/as-is",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "Type predicate functions for checking if a value is of a specific type or asserting that it is.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -17,10 +17,11 @@
 		]
 	},
 	"devDependencies": {
+		"@types/jest": "^27.0.2",
 		"es-jest": "^1.5.0",
 		"jest": "^27.4.7",
 		"jest-extended": "^2.0.0",
-		"@types/jest": "^27.0.2"
+		"typescript": "^5.3.3"
 	},
 	"keywords": [
 		"assert",
